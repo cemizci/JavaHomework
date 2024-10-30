@@ -17,21 +17,18 @@ public class H6_StringManipulationExample {
         String fiyat2 = scan.nextLine();
 
 
-        fiyat1 = fiyat1.replace(".", "_");
-        fiyat2 = fiyat2.replace("." , "_");
+        int spaceIndex = fiyat1.indexOf(" ");
+        String paraBirimi = fiyat1.substring(spaceIndex);
 
+        fiyat1 = fiyat1.replaceAll("\\D", "");
+        fiyat2 = fiyat2.replaceAll("\\D" , "");
 
-        fiyat1=fiyat1.replaceAll("\\W" , "");
-        fiyat2=fiyat2.replaceAll("\\W", "");
+        double cash1 = Double.parseDouble(fiyat1);
+        double cash2 = Double.parseDouble(fiyat2);
 
+        double toplam = (cash1 + cash2) / 100;
 
-        fiyat1=fiyat1.replace("_", ".");
-        fiyat2=fiyat2.replace("_", ".");
-
-        String toplamFiyat = ( Double.parseDouble(fiyat1) + Double.parseDouble(fiyat2) + " €" );
-        System.out.println(toplamFiyat);
-
-
+        System.out.println("Toplam : " + toplam + paraBirimi);
 
 
     }
